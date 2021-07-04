@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,900;1,500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'todo/css/style.css' %}" />
+  <title>{{title}}</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1><span>{{title}}</span></h1>
+    </header>
+
+    <main>
+      <form method="POST" name="add_form" class="add_form" action="{% url 'index' %}">
+        {% csrf_token %}
+        <p>Todoリストを追加する</p>
+        {{ form.as_table}}
+        <input type="submit" name="add_submit" value="追加する">
+      </form>
+
+      {% if data %}
+      <form method="POST" name="table_form" class="table_form" action="{% url 'index' %}">
+        {% csrf_token %}
+        <table class="table">
+          <thead>
+            <tr>
+              <th>タイトル</th>
+              <th>日付</th>
+              <th>削除</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in data %}
+            <tr class="task">
+              <td>{{item.add}}</td>
+              <td>{{item.created_date}}</td>
+              <td>
+                <button type="submit" class="delate" name="delate" value="{{item.id}}"
+                  onclick="table_form.key.value='delate_{{item.id}}'">削除する</button>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+          <input name="key" type="hidden" value="" />
+        </table>
+      </form>
+      {% endif %}
+    </main>
+
+    <footer>
+      <small>© 2021 Todoアプリ All Rights Reserved.</small>
+    </footer>
+
+  </div>
+  <script src="{% static 'todo/js/todo.js' %}"></script>
+</body>
+
+</html>

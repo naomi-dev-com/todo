@@ -1,0 +1,177 @@
+@charset "utf-8";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+input,
+button {
+  border: 1px solid #d3d2d2;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 2px;
+}
+
+html,
+body,
+.container {
+  height: 100%;
+}
+
+body {
+  font-family: "Lato", "Roboto", "Noto Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  color: #5c5b5b;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: #00bcd4;
+}
+
+h1 {
+  margin: 0 auto;
+  max-width: 1000px;
+  color: #fff;
+  display: block;
+  font-size: 30px;
+  padding: 5px 0;
+  letter-spacing: 1.6px;
+}
+
+main {
+  max-width: 1000px;
+  margin: 40px auto;
+  flex: 1;
+  width: 100%;
+}
+
+main form > p {
+  font-size: 20px;
+  letter-spacing: 0.2px;
+}
+
+label {
+  display: none;
+}
+
+main .add_form {
+  margin-bottom: 20px;
+  display: block;
+}
+
+main .add_form input[name="add"] {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+main .add_form input[type="submit"] {
+  background: #c0c090;
+  color: #fff;
+  border: 1px solid #b6b681;
+  box-shadow: 0px 3px #b6b681;
+  transition: all 0.3s;
+  position: relative;
+  top: 0;
+}
+
+main .add_form input:active {
+  box-shadow: none;
+  top: 3px;
+}
+
+main .table_form {
+  width: 100%;
+}
+
+main .table_form thead,
+main .table_form tbody {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+main .table_form thead {
+  border-top: 1px solid #d3d2d2;
+  border-bottom: 1px solid #d3d2d2;
+  padding: 8px 0;
+}
+
+main .table_form thead th {
+  letter-spacing: 1.6px;
+  font-size: 14px;
+}
+
+main .table_form tbody tr {
+  padding: 8px 0;
+}
+
+main .table_form tbody tr:hover {
+  background: #fefff1;
+}
+
+main .table_form tbody td {
+  border-bottom: 1px solid #d3d2d2;
+  padding: 8px 0;
+  text-align: center;
+  margin: 0;
+}
+
+main .complate {
+  background: #a7a7a5;
+  color: #fff;
+  border: 1px solid #9f9f9f;
+  box-shadow: 0px 3px #9f9f9f;
+  top: 0;
+  transition: all 0.2s;
+  position: relative;
+}
+
+main .complate:active {
+  box-shadow: none;
+  top: 3px;
+}
+
+main .delate {
+  box-shadow: 0px 2px #d3d2d2;
+  top: 0;
+  transition: all 0.2s;
+  position: relative;
+}
+
+main .delate:active {
+  box-shadow: none;
+  top: 2px;
+}
+
+footer {
+  margin-top: auto;
+  background: #5c5b5b;
+}
+
+footer small {
+  display: block;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 8px 0;
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+}
+
+@media screen and (max-width: 1000px) {
+  header,
+  main {
+    padding: 0 10px;
+  }
+}
